@@ -1,0 +1,2 @@
+# ejerciciodebug
+reto scrip2
