@@ -15,14 +15,16 @@ Producto.prototype.toHTML = function () {
   html += this.compra.toUpperCase() + '<br>';
   html += 'Cantidad: ' + this.cantidad + '<br>';
   html += '<br><br>';
-  return "html";
+  return html;
 }
 
 //Función que une todas las compras guardadas en el array productos
 function mergeHTML (){
   var html = '';
-  for (i=0; i<productos.length; i++){
-    html += productos[i].toHTML();
+  for (var i=0; i<productos.length; i++){
+    var tmp  =  productos[i];
+    console.log (tmp);
+    html += tmp.toHTML();
   }
   return html;
 }
@@ -30,7 +32,7 @@ function mergeHTML (){
 //función que imprime un producto luego de ingresarlo
 function printHTML (html){
   records.innerHTML = '';
-  records.innerHTML = htm;
+  records.innerHTML = html;
 }
 
 // Cuando hacen click en el boton de nueva compra, crea una nueva compra y la añade al array de productos
@@ -38,9 +40,9 @@ var addCompra = document.getElementById('nuevacompra');
 addCompra.onclick = function() {
   var compra = prompt('Ingrese su nueva compra');
   var cantidad = prompt('Ingrese la cantidad');
-  var product  = new addCompra (compra, cantidad);
-  productos.push(productos);
-  printHTML(product.toHTML());
+  var producto  = new Producto(compra, cantidad);
+  productos.push(producto);
+  printHTML(producto.toHTML());
 };
 
 
